@@ -1,0 +1,167 @@
+import { Record } from "ts-toolbelt";
+
+interface BuildCommand {
+  command: string;
+  output?: string;
+}
+
+interface EnvTemplate {
+  [key: string]: string | undefined;
+}
+
+interface HeaderRule {
+  source: string;
+  headers: Array<{ key: string; value: string }>;
+}
+
+interface CacheStrategy {
+  rules: Array<{
+    urlPathPattern: string;
+    headers: Record<string, string>;
+  }>;
+}
+
+interface FrameworkSettings {
+  vercel?: { [key: string]: any };
+  netlify?: { [key: string]: any };
+}
+
+interface DeployConfig {
+  build: BuildCommand;
+  env: EnvTemplate;
+  headers: Array<HeaderRule>;
+  cacheStrategies: CacheStrategy[];
+  frameworkSettings: FrameworkSettings;
+}
+
+export const deployConfig: DeployConfig = {
+  build: {
+    command: "next build",
+    output: ".next"
+  },
+  env: {
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
+    NEXT_PUBLIC_APP_ENV: process.env.NEXT_PUBLIC_APP_ENV
+  },
+  headers: [
+    {
+      source: "/(.*)",
+      headers: [
+        { key: "strict-transport-security", value: "max-age=31536000; includeSubDomains; preload" },
+        { key: "x-content-type-options", value: "nosniff" },
+        { key: "x-frame-options", value: "DENY" },
+        { key: "x-xss-protection", value: "1; mode=block" }
+      ]
+    }
+  ],
+  cacheStrategies: [
+    {
+      urlPathPattern: "/api/(.*)",
+      headers: {
+        "Cache-Control": "s-maxage=60, stale-while-revalidate"
+      }
+    },
+    {
+      urlPathPattern: "/static/(.*)",
+      headers: {
+        "Cache-Control": "public, max-age=31536000"
+      }
+    }
+  ],
+  frameworkSettings: {
+    vercel: {
+      buildCommand: "next build",
+      startCommand: "next start",
+      region: "eu-central-1"
+    },
+    netlify: {
+      build: { command: "yarn run build" },
+      functions: ".vercel/functions",
+      publish: ".next"
+    }
+  }
+};
+
+import { Record } from "ts-toolbelt";
+
+interface BuildCommand {
+  command: string;
+  output?: string;
+}
+
+interface EnvTemplate {
+  [key: string]: string | undefined;
+}
+
+interface HeaderRule {
+  source: string;
+  headers: Array<{ key: string; value: string }>;
+}
+
+interface CacheStrategy {
+  rules: Array<{
+    urlPathPattern: string;
+    headers: Record<string, string>;
+  }>;
+}
+
+interface FrameworkSettings {
+  vercel?: { [key: string]: any };
+  netlify?: { [key: string]: any };
+}
+
+interface DeployConfig {
+  build: BuildCommand;
+  env: EnvTemplate;
+  headers: Array<HeaderRule>;
+  cacheStrategies: CacheStrategy[];
+  frameworkSettings: FrameworkSettings;
+}
+
+export const deployConfig: DeployConfig = {
+  build: {
+    command: "next build",
+    output: ".next"
+  },
+  env: {
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
+    NEXT_PUBLIC_APP_ENV: process.env.NEXT_PUBLIC_APP_ENV
+  },
+  headers: [
+    {
+      source: "/(.*)",
+      headers: [
+        { key: "strict-transport-security", value: "max-age=31536000; includeSubDomains; preload" },
+        { key: "x-content-type-options", value: "nosniff" },
+        { key: "x-frame-options", value: "DENY" },
+        { key: "x-xss-protection", value: "1; mode=block" }
+      ]
+    }
+  ],
+  cacheStrategies: [
+    {
+      urlPathPattern: "/api/(.*)",
+      headers: {
+        "Cache-Control": "s-maxage=60, stale-while-revalidate"
+      }
+    },
+    {
+      urlPathPattern: "/static/(.*)",
+      headers: {
+        "Cache-Control": "public, max-age=31536000"
+      }
+    }
+  ],
+  frameworkSettings: {
+    vercel: {
+      buildCommand: "next build",
+      startCommand: "next start",
+      region: "eu-central-1"
+    },
+    netlify: {
+      build: { command: "yarn run build" },
+      functions: ".vercel/functions",
+      publish: ".next"
+    }
+  }
+};

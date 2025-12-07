@@ -1,0 +1,37 @@
+{
+  "name": "EcoTrackPro",
+  "type": "saas",
+  "description": "EcoTrackPro offers small businesses an AI-driven platform to track and reduce their carbon footprint with personalized insights and recommendations, empowering them to make sustainable choices without sacrificing efficiency.",
+  "generated_at": "2025-12-07T19:14:35.905489",
+  "components": [
+    "spec",
+    "build",
+    "deploy",
+    "spec_requirements",
+    "spec_architecture",
+    "build_code",
+    "build_test"
+  ],
+  "files_written": [
+    "businesses\\production_test\\saas\\ecotrackpro\\src\\components\\component.tsx",
+    "businesses\\production_test\\saas\\ecotrackpro\\__tests__\\component.test.tsx",
+    "businesses\\production_test\\saas\\ecotrackpro\\vercel.json",
+    "businesses\\production_test\\saas\\ecotrackpro\\src\\components\\requirements.tsx",
+    "businesses\\production_test\\saas\\ecotrackpro\\__tests__\\architecture.test.tsx",
+    "businesses\\production_test\\saas\\ecotrackpro\\vercel.json",
+    "businesses\\production_test\\saas\\ecotrackpro\\src\\components\\test.tsx",
+    "businesses\\production_test\\saas\\ecotrackpro\\src\\app\\layout.tsx",
+    "businesses\\production_test\\saas\\ecotrackpro\\src\\app\\globals.css",
+    "businesses\\production_test\\saas\\ecotrackpro\\src\\app\\page.tsx"
+  ],
+  "tasks_completed": 7,
+  "tasks_failed": 0,
+  "ap2_estimated_cost": 45.2,
+  "ap2_estimated_tokens": 19500,
+  "ap2_generation_approval": null,
+  "infrastructure_approvals": {
+    "analytics": null,
+    "database": null,
+    "storage": null
+  }
+}
