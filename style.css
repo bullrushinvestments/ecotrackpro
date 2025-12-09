@@ -1,13 +1,13 @@
-/* Genesis AI - Professional Landing Page Styles */
+/* Genesis AI - Unique Landing Page Styles */
 :root {
-    --primary: #6366f1;
-    --primary-dark: #4f46e5;
-    --secondary: #10b981;
+    --primary: #22c55e;
+    --primary-dark: #16a34a;
+    --secondary: #84cc16;
     --dark: #1f2937;
     --light: #f9fafb;
     --gray: #6b7280;
     --white: #ffffff;
-    --gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+    --gradient: linear-gradient(135deg, #22c55e 0%, #4ade80 50%, #86efac 100%);
 }
 
 * {
@@ -136,7 +136,7 @@ body {
 .hero-subtitle {
     font-size: 1.25rem;
     color: var(--gray);
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto 40px;
 }
 
@@ -288,7 +288,7 @@ body {
 }
 
 .pricing-card li:before {
-    content: "✓ ";
+    content: "\2713 ";
     color: var(--secondary);
     font-weight: 600;
 }
